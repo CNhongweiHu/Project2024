@@ -10,7 +10,7 @@ using UnityEngine;
 /// <summary>
 /// 2进制数据管理器
 /// </summary>
-public class BinaryDataMgr
+public class BinaryDataMgr :BaseManager<BinaryDataMgr>
 {
     /// <summary>
     /// 2进制数据存储位置路径
@@ -26,10 +26,7 @@ public class BinaryDataMgr
     /// 数据存储的位置
     /// </summary>
     private static string SAVE_PATH = Application.persistentDataPath + "/Data/";
-
-    private static BinaryDataMgr instance = new BinaryDataMgr();
-    public static BinaryDataMgr Instance => instance;
-
+    
     private BinaryDataMgr()
     {
         InitData();
