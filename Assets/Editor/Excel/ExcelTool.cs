@@ -85,9 +85,14 @@ public class ExcelTool
         string str = "public class " + table.TableName + "\n{\n";
 
         //变量进行字符串拼接
+        //类型字符串
+        string type = "";
         for (int i = 0; i < table.Columns.Count; i++)
         {
-            str += "    public " + rowType[i].ToString() + " " + rowName[i].ToString() + ";\n";
+            type = rowType[i].ToString() == "" ? "int" : rowType[i].ToString();
+            //读取rowType前进行一次判断，rowType是否为空？，如果为空则视为int，如果不为空则不改变
+            str += "    public " + type + " " + rowName[i].ToString() + ";\n";
+            //由于string type已经进行了判断，那么我们无需在这里再获取rowType[i].ToString()，故删除
         }
 
         str += "}";
@@ -118,8 +123,11 @@ public class ExcelTool
         str += "public class " + table.TableName + "Container" + "\n{\n";
 
         str += "    ";
-        str += "public Dictionary<" + rowType[keyIndex].ToString() + ", " + table.TableName + ">";
-        str += "dataDic = new " + "Dictionary<" + rowType[keyIndex].ToString() + ", " + table.TableName + ">();\n";
+        string keyType = rowType[keyIndex].ToString() == "" ? "int" : rowType[keyIndex].ToString();
+        //判断键是否为空，如果为空视为int
+        str += "public Dictionary<" + keyType + ", " + table.TableName + ">";
+        str += "dataDic = new " + "Dictionary<" + keyType + ", " + table.TableName + ">();\n";
+        //同理，删除rowType[keyIndex].ToString()，引用keyType
 
         str += "}";
 
@@ -168,7 +176,10 @@ public class ExcelTool
                     switch (rowType[j].ToString())
                     {
                         case "int":
-                            fs.Write(BitConverter.GetBytes(int.Parse(row[j].ToString())), 0, 4);
+                        case "":
+                            //这里使用贯穿，键值为空也视为int
+                            fs.Write(BitConverter.GetBytes(row[j].ToString() == "" ? 0 : int.Parse(row[j].ToString())), 0, 4);
+                            //判断内容row[j].ToString()是否为空，如果为空视为0，如果不为空，则转化为int，int.Parse(row[j].ToString()
                             break;
                         case "float":
                             fs.Write(BitConverter.GetBytes(float.Parse(row[j].ToString())), 0, 4);
