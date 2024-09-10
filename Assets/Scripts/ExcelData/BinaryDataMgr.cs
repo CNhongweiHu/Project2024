@@ -29,12 +29,13 @@ public class BinaryDataMgr :BaseManager<BinaryDataMgr>
     
     private BinaryDataMgr()
     {
-        InitData();
+        //InitData();
     }
 
     public void InitData()
     {
-
+        LoadTable<T_MonsterContainer,T_Monster>();
+        LoadTable<T_PlayerContainer,T_Player>();
     }
 
     /// <summary>
