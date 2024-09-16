@@ -33,7 +33,7 @@ public class EntityProperty
     /// 数据表ID
     /// </summary>
     public int tableID { 
-        get => EncryptionUtil.UnLoackValue(_tableID,_lockKey); 
+        get => EncryptionUtil.UnLockValue(_tableID,_lockKey); 
         set => _tableID = EncryptionUtil.LockValue(value,_lockKey); }
     /// <summary>
     /// 模型资源名

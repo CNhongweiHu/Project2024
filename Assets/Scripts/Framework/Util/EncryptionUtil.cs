@@ -34,7 +34,7 @@ public class EncryptionUtil
     }
 
     //3.解密数据
-    public static int UnLoackValue(int value, int key)
+    public static int UnLockValue(int value, int key)
     {
         //有可能还没有加密过 没有初始化过的数据 直接想要获取 那么就不用解密了
         //这种时候数值肯定是0
@@ -47,7 +47,7 @@ public class EncryptionUtil
         return value;
     }
 
-    public static long UnLoackValue(long value, int key)
+    public static long UnLockValue(long value, int key)
     {
         //有可能还没有加密过 没有初始化过的数据 直接想要获取 那么就不用解密了
         //这种时候数值肯定是0
