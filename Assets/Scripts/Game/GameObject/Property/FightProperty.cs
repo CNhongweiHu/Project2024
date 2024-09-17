@@ -258,4 +258,6 @@ public class FightProperty : BaseObjProperty
     public int beComboHitNum {
         get => EncryptionUtil.UnLockValue(_beComboHitNum,lockKey);
         set => _beComboHitNum = EncryptionUtil.LockValue(value,lockKey); }
+    public Dictionary<string, string> actionSound { get => _actionSound; set => _actionSound = value; }
+    public Dictionary<string, string> actionEff { get => _actionEff; set => _actionEff = value; }
 }
