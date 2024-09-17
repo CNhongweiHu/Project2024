@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FightObjProperty : BaseObjProperty
+public class FightProperty : BaseObjProperty
 {
     //等级
     private int _level;
@@ -63,7 +63,7 @@ public class FightObjProperty : BaseObjProperty
     private Dictionary<string, string> _actionEff = new Dictionary<string, string>();
     
     //调用父类构造函数
-    public FightObjProperty() : base()
+    public FightProperty() : base()
     {
         //置零，初始化
         level = 0;
