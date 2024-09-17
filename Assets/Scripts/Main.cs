@@ -21,6 +21,10 @@ public class Main : MonoBehaviour
         PlayerProperty playerProperty = new PlayerProperty();
         playerProperty.SetData(1,1);
         print(playerProperty.name);
+        foreach(var key in playerProperty.actionEff.Keys)
+        {
+            print(key + "_" + playerProperty.actionEff[key]);
+        }
 
     }
 
