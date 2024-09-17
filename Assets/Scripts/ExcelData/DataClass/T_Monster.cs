@@ -25,6 +25,8 @@ public class T_Monster
     public int f_atk;
     public int f_defense;
     public int f_hp;
+    public int f_hp_speed;
+    public int f_hp_atk;
     public int f_hit;
     public int f_dodge;
     public int f_crit;
