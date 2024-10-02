@@ -26,6 +26,9 @@ public class Main : MonoBehaviour
             print(key + "_" + playerProperty.actionEff[key]);
         }
 
+        MonsterProperty monsterProperty = new MonsterProperty();
+        monsterProperty.SetData(1004);
+        print(monsterProperty.name);
     }
 
     // Update is called once per frame
