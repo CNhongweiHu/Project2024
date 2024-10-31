@@ -27,14 +27,16 @@ public class PlayerProperty : FightProperty
     /// </summary>
     /// <param name="professionID"></param>
     /// <param name="level"></param>
-    public void SetData(int professionID, int level)//玩家对象属性初始化方法
+    /// <param name="ids"></param>
+    /// 需要传递两个int，第一个代表职业，第二个代表等级
+    public override void SetData(params int[] ids)//玩家对象属性初始化方法
     {
         //得到角色配置表当中对应的数据 用于初始化角色属性
         T_Player playerInfo = BinaryDataMgr.Instance.GetTable<T_PlayerContainer>().dataDic[professionID + "_" + level];
 
-        this.professionID = professionID;
+        this.professionID = ids[0];
         //等级
-        this.level = level;
+        this.level = ids[1];
         //名称
         this.name = playerInfo.f_name;
         this.iconName = playerInfo.f_icon;

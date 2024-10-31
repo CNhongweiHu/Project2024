@@ -69,12 +69,15 @@ public class MonsterProperty : FightProperty
         skill4 = 0;
         skill5 = 0;
     }
-
-    public override void SetData(int id)
+    /// <summary>
+    /// 初始化属性
+    /// </summary>
+    /// <param name="ids"></param>只需要传入怪物表ID即可
+    public override void SetData(params int[] ids)
     {
         //得到怪物配置表中的数据
-        T_Monster monsterInfo = BinaryDataMgr.Instance.GetTable<T_MonsterContainer>().dataDic[id];
-        this.tableID = id;
+        T_Monster monsterInfo = BinaryDataMgr.Instance.GetTable<T_MonsterContainer>().dataDic[ids[0]];
+        this.tableID = ids[0];
         this.name = monsterInfo.f_name;
         this.iconName = monsterInfo.f_icon;
         this.resName = monsterInfo.f_model;

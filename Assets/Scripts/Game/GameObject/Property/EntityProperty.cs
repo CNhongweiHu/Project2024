@@ -23,7 +23,7 @@ public class EntityProperty
     /// 初始化数据
     /// </summary>
     /// <param name="id">传入的模板ID，子函数，提供给子类重写的</param>
-    public virtual void SetData(int id){}
+    public virtual void SetData(params int[] ids){}
     //初始化
     /// <summary>
     /// 唯一ID
